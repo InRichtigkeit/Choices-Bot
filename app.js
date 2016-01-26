@@ -3,15 +3,17 @@ var SlackBot = require('slackbots');
  
 var bot = new SlackBot({
     token: process.env.SLACK_TOKEN,
-    name: 'Choices'
+    name: 'BB-8'
 });
  
 bot.on('start', function() {
     var params = {
-        icon_emoji: ':cat:'
+        icon_emoji: ':bb8:'
     };
     
-    bot.postMessageToChannel('general', 'meow!', params);
-    
-    bot.postMessageToUser('cornelius', 'meow!', params); 
+	bot.on('message', function(data) {
+		if(data.text && data.subtype != "bot_message") {
+			bot.postMessageToChannel('general', 'Bleep Blip Bleep', params);
+		}
+	});
 });
