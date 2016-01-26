@@ -6,7 +6,9 @@
 		"start": "node app.js"
 	},
 	"dependencies": {
-		"slackbots": "x"
+		"slackbots": "x",
+		"giphy-api": "x"
+
 	},
 	"repository": {}
 }
