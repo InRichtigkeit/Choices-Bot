@@ -1,9 +1,11 @@
 var Slackbot = require('slackbot')
 
-var slackbot = new Slackbot('inrichtigkeit', 'xoxb-19505835703-QZaaLysknNvRKQpLLiP7DCLC');
+var slackbot = new Slackbot(process.env.SLACK_TEAM, process.env.SLACK_TOKEN);
 
 slackbot.send("#general", "hello!!", function(err, res, body) {
-	console.log(body);
-  	if(err) return;
-  	console.log(body);
+  if(err){
+    console.error(err);
+    return;
+  }
+  console.log(body);
 });
